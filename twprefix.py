@@ -27,6 +27,23 @@ def prettify_with_space(
     return r.sub(r'\1' * indent, s.prettify(encoding, formatter))
 
 
+def prefix_name(name, prefix):
+    """
+    Convert class name with prefix.
+    Handle special case where prefix needs to be after variant
+    e.g. md:text-xl -> md:tw-text-xl
+    :param name: Name of the class
+    :param prefix: Prefix, e.g. tw-
+    :return:
+    """
+    if ':' in name:
+        variant, c_name = name.split(':')
+        s = f"{variant}:{prefix}{c_name}"
+    else:
+        s = f"{prefix}{name}"
+    return s
+
+
 def process(filepath=None, prefix='tw-', indent=2):
     """
     Process the filepath
@@ -40,7 +57,7 @@ def process(filepath=None, prefix='tw-', indent=2):
 
     for tag in tags_with_class:
         class_names = tag['class'].split(' ')
-        tag['class'] = ' '.join([f"{prefix}{c}" for c in class_names])
+        tag['class'] = ' '.join([prefix_name(c, prefix) for c in class_names])
 
     tags_with__class = soup.find_all(attrs={':class': True})
     for tag in tags_with__class:
@@ -51,9 +68,9 @@ def process(filepath=None, prefix='tw-', indent=2):
             src = m
             if ' ' in m:
                 class_names = m.split(' ')
-                dst = ' '.join([f"{prefix}{c}" for c in class_names])
+                dst = ' '.join([prefix_name(c, prefix) for c in class_names])
             else:
-                dst = f"{prefix}{src}"
+                dst = prefix_name(src, prefix)
             replacements.append(
                 dict(src=src, dst=dst)
             )
