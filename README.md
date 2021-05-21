@@ -1,6 +1,10 @@
 # Tailwind Prefix
 
-Add Tailwind Prefix to classes
+Add Tailwind Prefix to classes.
+
+## Why?
+
+Components found on the web using Tailwind classes are usually provided as plain Tailwind CSS classes. But very often we need to add custom prefix so that it won’t collide with existing styles. This script was written so that you can copy the source and quickly convert them into prefix’ed versions such that you can use it immediately.
 
 ## Example
 
