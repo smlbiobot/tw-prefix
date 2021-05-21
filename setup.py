@@ -21,7 +21,7 @@ with open_local(["twprefix", "__version__.py"], encoding="latin1") as fp:
 setup_kwargs = {
     "name": "twprefix",
     "version": version,
-    "url": "http://github.com/sanic-org/sanic/",
+    "url": "https://github.com/smlbiobot/tw-prefix/",
     "license": "MIT",
     "author": "See-ming Lee (SML)",
     "author_email": "seeminglee@gmail.com",
