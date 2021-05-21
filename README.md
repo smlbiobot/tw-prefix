@@ -6,6 +6,22 @@ Add Tailwind Prefix to classes.
 
 Components found on the web using Tailwind classes are usually provided as plain Tailwind CSS classes. But very often we need to add custom prefix so that it won’t collide with existing styles. This script was written so that you can copy the source and quickly convert them into prefix’ed versions such that you can use it immediately.
 
+## Install
+
+Clone repo, create virutualenv (if wanted)
+
+Install requirements
+
+```angular2html
+pip install -r requirements.txt
+```
+
+Run as module
+
+```
+python -m twprefix
+```
+
 ## Example
 
 From https://tailwindui.com/preview
