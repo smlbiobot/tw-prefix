@@ -11,7 +11,7 @@ Components found on the web using Tailwind classes are usually provided as plain
 From https://tailwindui.com/preview
 
 ```
-python twprefix.py ./tests/InputGroups.vue
+python -m twprefix ./tests/InputGroups.vue
 ```
 
 converts source:
