@@ -9,6 +9,8 @@ lxml = "*"
 wheel = "*"
 setuptools = "*"
 twine = "*"
+pytest = "*"
+pytest-runner = "*"
 
 [dev-packages]
 
