@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 beautifulsoup4 = "*"
 lxml = "*"
+wheel = "*"
+setuptools = "*"
+twine = "*"
 
 [dev-packages]
 
