@@ -1,2 +1,3 @@
-# tw_ui_prefix
+# Tailwind Prefix
+
 Add Tailwind Prefix to classes
