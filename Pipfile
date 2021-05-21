@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-bs4 = "*"
 beautifulsoup4 = "*"
 lxml = "*"
 
