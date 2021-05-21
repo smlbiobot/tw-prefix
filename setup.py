@@ -40,5 +40,10 @@ setup_kwargs = {
     "entry_points": {"console_scripts": ["twprefix = twprefix.__main__:main"]},
 }
 
+requirements = [
+    "beautifulsoup4",
+    "lxml",
+]
 
+setup_kwargs["install_requires"] = requirements
 setup(**setup_kwargs)
