@@ -16,17 +16,25 @@ def process(filepath=None):
     :param filepath: source file. Use file from tests if None
     :return:
     """
-    if filepath is None:
-        filepath = os.path.abspath('./tests/PageHeadings.vue')
-
     with open(filepath) as fp:
-        soup = BeautifulSoup(fp, 'html.parser')
+        soup = BeautifulSoup(fp, 'lxml-xml')
+
+    print(soup)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('file', help='File to process')
-    ap.add_argument('-o', '--out', default=None, help='Output file')
+    ap.add_argument(
+        'file',
+        help='File to process',
+        default='./tests/PageHeadings.vue',
+    )
+    ap.add_argument(
+        '-o',
+        '--out',
+        default=None,
+        help='Output file'
+    )
 
     args = ap.parse_args()
 
