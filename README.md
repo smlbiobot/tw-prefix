@@ -26,11 +26,17 @@ python -m twprefix
 
 From https://tailwindui.com/preview
 
+### Convert a file
 ```
-python -m twprefix ./tests/InputGroups.vue
+python -m twprefix -f ./tests/InputGroups.vue
 ```
 
-converts source:
+### Convert a string
+```
+python -m twprefix -s `<label for="price" class="block text-sm font-medium text-gray-700">Price</label>'
+```
+
+### Example conversion:
 
 ```html
 <div>

@@ -15,9 +15,22 @@ from twprefix.twprefix import process
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument(
-        'file',
+        '-f',
+        '--file',
         help='File to process',
-        default='./tests/PageHeadings.vue',
+        default=None,
+    )
+    ap.add_argument(
+        '-s',
+        '--string',
+        help="Process a string",
+        default=None
+    )
+    ap.add_argument(
+        '-p',
+        '--prefix',
+        help="Prefix for the classes",
+        default='tw-'
     )
     # TODO: add option to output rendered template to file
     ap.add_argument(
@@ -29,8 +42,18 @@ def main():
 
     args = ap.parse_args()
 
+    filepath = None
+    if args.file:
+        filepath = os.path.abspath(args.file)
+
+    text = None
+    if args.string:
+        text = args.string
+
     process(
-        filepath=os.path.abspath(args.file)
+        filepath=filepath,
+        text=text,
+        prefix=args.prefix,
     )
 
 

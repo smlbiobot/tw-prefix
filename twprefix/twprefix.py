@@ -74,15 +74,20 @@ def convert(src: str, prefix='tw-', indent=2) -> str:
     return prettify_with_space(soup, indent=indent)
 
 
-def process(filepath=None, prefix='tw-', indent=2):
+def process(filepath=None, text=None, prefix='tw-', indent=2):
     """
     Process the filepath
     :param filepath: source file. Use file from tests if None
     :return:
     """
 
-    with open(filepath) as fp:
-        src = fp.read()
+    if filepath is not None:
+        with open(filepath) as fp:
+            src = fp.read()
+
+    else:
+        src = text
+        print(src)
 
     dst = convert(
         src,
