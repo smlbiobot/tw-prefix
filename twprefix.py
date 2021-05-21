@@ -8,9 +8,19 @@ on the web that does not have a prefix
 """
 import argparse
 import os
+from bs4 import BeautifulSoup
 
-def process(filepath):
-    pass
+def process(filepath=None):
+    """
+    Process the filepath
+    :param filepath: source file. Use file from tests if None
+    :return:
+    """
+    if filepath is None:
+        filepath = os.path.abspath('./tests/PageHeadings.vue')
+
+    with open(filepath) as fp:
+        soup = BeautifulSoup(fp, 'html.parser')
 
 
 def main():
