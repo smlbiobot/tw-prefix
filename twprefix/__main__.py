@@ -32,6 +32,13 @@ def main():
         help="Prefix for the classes",
         default='tw-'
     )
+    ap.add_argument(
+        '-c',
+        '--classnames',
+        help="Convert class names directly",
+        default=None,
+        nargs='*'
+    )
     # TODO: add option to output rendered template to file
     ap.add_argument(
         '-o',
@@ -54,6 +61,7 @@ def main():
         filepath=filepath,
         text=text,
         prefix=args.prefix,
+        class_names=args.classnames,
     )
 
 

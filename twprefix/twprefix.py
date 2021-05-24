@@ -74,7 +74,7 @@ def convert(src: str, prefix='tw-', indent=2) -> str:
     return prettify_with_space(soup, indent=indent)
 
 
-def process(filepath=None, text=None, prefix='tw-', indent=2):
+def process(filepath=None, text=None, prefix='tw-', indent=2, class_names=None):
     """
     Process the filepath
     :param filepath: source file. Use file from tests if None
@@ -87,12 +87,17 @@ def process(filepath=None, text=None, prefix='tw-', indent=2):
 
     else:
         src = text
-        print(src)
+        # print(src)
 
-    dst = convert(
-        src,
-        prefix=prefix,
-        indent=indent,
-    )
+    if class_names is not None:
+        dst = ' '.join([prefix_name(c, prefix) for c in class_names])
+
+    else:
+
+        dst = convert(
+            src,
+            prefix=prefix,
+            indent=indent,
+        )
 
     print(dst)
